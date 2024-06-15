@@ -24,7 +24,7 @@ public class DriverFactory {
             case "safari":
                 driver = new SafariDriver();
                 break;
-            case "firfox":
+            case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
