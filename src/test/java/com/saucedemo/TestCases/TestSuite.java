@@ -24,7 +24,7 @@ public class TestSuite extends BaseTestCases {
     }
 
     @Test(description = "Check if the given wrong credentials work, Username: Hossam ,Password: sau1234 ")
-    public void TC_03() throws InterruptedException {
+    public void TC_03(){
         new LogInPage(driver)
                         .openLoginPage()
                         .fillInvalidUsername()
