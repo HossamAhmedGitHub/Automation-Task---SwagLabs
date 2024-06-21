@@ -35,9 +35,10 @@ public class Utils {
 
     //TODO: get text from element after checking visibility
     public static String getText(WebDriver driver, By locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+        new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(ProductionConfigUtils.getConfigValue( "WAIT_DEFAULT"))))
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
         return findWebElement(driver, locator).getText();
 
     }
+
 }
