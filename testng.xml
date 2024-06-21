@@ -3,13 +3,13 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Hossam/IdeaProjects/ExamPRojectSummerge">
         <classes>
-            <class name="com.saucedemo.TestCases.TestSuite">
+            <class name="com.saucedemo.TestCases.TestCaseSuite">
                 <methods>
-                    <include name="TC_01"/>
-                    <include name="TC_02"/>
-                    <include name="TC_03"/>
-                    <include name="TC_04"/>
-                    <include name="TC_05"/>
+                    <include name="TC_Login_01"/>
+                    <include name="TC_Login_02"/>
+                    <include name="TC_Login_03"/>
+                    <include name="TC_Login_04"/>
+                    <include name="TC_Login_05"/>
                 </methods>
             </class>
         </classes>
