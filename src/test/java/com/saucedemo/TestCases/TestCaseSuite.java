@@ -12,7 +12,8 @@ public class TestCaseSuite extends BaseTestCases {
         new LogInPage(driver).openLoginPage();
         Assert.assertTrue(new LogInPage(driver).isUserNameFieldVisible()); // assert the Username Field is visible in the main page
         Assert.assertTrue(new LogInPage(driver).isPasswordFieldVisible()); // assert the Password Field is visible in the main page
-    }
+    }//end TC_01() method
+
     @Test(description = "Check if the given valid credentials work, Username: standard_user ,Password: secret_sauce")
     public void TC_02(){
         new LogInPage(driver)
@@ -21,7 +22,7 @@ public class TestCaseSuite extends BaseTestCases {
                         .fillPasswordField() //enter valid password
                         .clickOnLoginButton();
         Assert.assertTrue(new HomePage(driver).isSwagLabsLogoVisible()); //assert the Home logo is visible
-    }
+    }//end TC_02() method
 
     @Test(description = "Check if the given wrong credentials work, Username: Hossam ,Password: sau1234 ")
     public void TC_03(){
@@ -33,7 +34,8 @@ public class TestCaseSuite extends BaseTestCases {
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible()); // assert the error message appears
         /* get the error message text from the page and compare it to the actual wrong credentials error message */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getWRONG_CREDITENTIAL_ERROR_MESSAGE() );
-    }
+    }//end TC_03() method
+
     @Test(description = "Check for empty credential, when username is empty ")
     public void TC_04(){
         new LogInPage(driver)
@@ -43,7 +45,7 @@ public class TestCaseSuite extends BaseTestCases {
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible());
         /* getting the error message and compare it to the actual error message when leaving username empty */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_USERNAME_ERROR_MESSAGE() );
-    }
+    }//end TC_04() method
 
     @Test(description = "Check for empty credential, when username is empty ")
     public void TC_05(){
@@ -54,7 +56,7 @@ public class TestCaseSuite extends BaseTestCases {
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible());
         /* getting the error message and compare it to the actual error message when leaving password empty */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_PASSWORD_ERROR_MESSAGE() );
-    }
+    }//end TC_05() method
 
 
 }//end class LoginTestCases
