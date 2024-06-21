@@ -17,8 +17,8 @@ public class TestSuite extends BaseTestCases {
     public void TC_02(){
         new LogInPage(driver)
                         .openLoginPage()
-                        .fillUsernameField()
-                        .fillPasswordField()
+                        .fillUsernameField() //enter valid username
+                        .fillPasswordField() //enter valid password
                         .clickOnLoginButton();
         Assert.assertTrue(new HomePage(driver).isSwagLabsLogoVisible()); //assert the Home logo is visible
     }
@@ -27,10 +27,11 @@ public class TestSuite extends BaseTestCases {
     public void TC_03(){
         new LogInPage(driver)
                         .openLoginPage()
-                        .fillInvalidUsername()
-                        .fillInvalidPassword()
+                        .fillInvalidUsername() //enter invalid username
+                        .fillInvalidPassword() //enter invalid password
                         .clickOnLoginButton();
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible()); // assert the error message appears
+        /* get the error message text from the page and compare it to the actual wrong credentials error message */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getWRONG_CREDITENTIAL_ERROR_MESSAGE() );
     }
     @Test(description = "Check for empty credentials, when username is empty ")
@@ -40,6 +41,7 @@ public class TestSuite extends BaseTestCases {
                         .fillPasswordField()
                         .clickOnLoginButton();
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible());
+        /* getting the error message and compare it to the actual error message when leaving username empty */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_USERNAME_ERROR_MESSAGE() );
     }
 
@@ -50,6 +52,7 @@ public class TestSuite extends BaseTestCases {
                 .fillUsernameField()
                 .clickOnLoginButton();
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible());
+        /* getting the error message and compare it to the actual error message when leaving password empty */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_PASSWORD_ERROR_MESSAGE() );
     }
 
