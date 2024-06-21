@@ -15,7 +15,7 @@ public class BaseTestCases {
         driver = new DriverFactory().initializeDriver();
     }
     @AfterMethod
-    public void trearDown(ITestResult result) {
+    public void trearDown() {
         driver.quit();
     }
 }
