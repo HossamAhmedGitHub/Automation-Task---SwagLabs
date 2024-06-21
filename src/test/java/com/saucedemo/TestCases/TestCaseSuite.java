@@ -8,24 +8,24 @@ import org.testng.annotations.Test;
 
 public class TestCaseSuite extends BaseTestCases {
     @Test(description = "Check if the username and password fields are on the main screen of the application")
-    public void TC_01(){
+    public void TC_Login_01(){
         new LogInPage(driver).openLoginPage();
         Assert.assertTrue(new LogInPage(driver).isUserNameFieldVisible()); // assert the Username Field is visible in the main page
         Assert.assertTrue(new LogInPage(driver).isPasswordFieldVisible()); // assert the Password Field is visible in the main page
-    }//end TC_01() method
+    }//end TC_Login_01() method
 
     @Test(description = "Check if the given valid credentials work, Username: standard_user ,Password: secret_sauce")
-    public void TC_02(){
+    public void TC_Login_02(){
         new LogInPage(driver)
                         .openLoginPage()
                         .fillUsernameField() //enter valid username
                         .fillPasswordField() //enter valid password
                         .clickOnLoginButton();
         Assert.assertTrue(new HomePage(driver).isSwagLabsLogoVisible()); //assert the Home logo is visible
-    }//end TC_02() method
+    }//end TC_Login_02() method
 
     @Test(description = "Check if the given wrong credentials work, Username: Hossam ,Password: sau1234 ")
-    public void TC_03(){
+    public void TC_Login_03(){
         new LogInPage(driver)
                         .openLoginPage()
                         .fillInvalidUsername() //enter invalid username
@@ -34,10 +34,10 @@ public class TestCaseSuite extends BaseTestCases {
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible()); // assert the error message appears
         /* get the error message text from the page and compare it to the actual wrong credentials error message */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getWRONG_CREDITENTIAL_ERROR_MESSAGE() );
-    }//end TC_03() method
+    }//end TC_Login_03() method
 
     @Test(description = "Check for empty credential, when username is empty ")
-    public void TC_04(){
+    public void TC_Login_04(){
         new LogInPage(driver)
                         .openLoginPage()
                         .fillPasswordField()
@@ -45,10 +45,10 @@ public class TestCaseSuite extends BaseTestCases {
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible());
         /* getting the error message and compare it to the actual error message when leaving username empty */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_USERNAME_ERROR_MESSAGE() );
-    }//end TC_04() method
+    }//end TC_Login_04() method
 
     @Test(description = "Check for empty credential, when username is empty ")
-    public void TC_05(){
+    public void TC_Login_05(){
         new LogInPage(driver)
                 .openLoginPage()
                 .fillUsernameField()
@@ -56,7 +56,7 @@ public class TestCaseSuite extends BaseTestCases {
         Assert.assertTrue(new LogInPage(driver).isErrorMessageVisible());
         /* getting the error message and compare it to the actual error message when leaving password empty */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_PASSWORD_ERROR_MESSAGE() );
-    }//end TC_05() method
+    }//end TC_Login_05() method
 
 
 }//end class LoginTestCases
