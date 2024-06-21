@@ -6,7 +6,7 @@ import com.saucedemo.base.BaseTestCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestSuite extends BaseTestCases {
+public class TestCaseSuite extends BaseTestCases {
     @Test(description = "Check if the username and password fields are on the main screen of the application")
     public void TC_01(){
         new LogInPage(driver).openLoginPage();
@@ -34,7 +34,7 @@ public class TestSuite extends BaseTestCases {
         /* get the error message text from the page and compare it to the actual wrong credentials error message */
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getWRONG_CREDITENTIAL_ERROR_MESSAGE() );
     }
-    @Test(description = "Check for empty credentials, when username is empty ")
+    @Test(description = "Check for empty credential, when username is empty ")
     public void TC_04(){
         new LogInPage(driver)
                         .openLoginPage()
@@ -45,7 +45,7 @@ public class TestSuite extends BaseTestCases {
         Assert.assertEquals(new LogInPage(driver).getErrorMessageText(), new LogInPage(driver).getEMPTY_USERNAME_ERROR_MESSAGE() );
     }
 
-    @Test(description = "Check for empty credentials, when username is empty ")
+    @Test(description = "Check for empty credential, when username is empty ")
     public void TC_05(){
         new LogInPage(driver)
                 .openLoginPage()
