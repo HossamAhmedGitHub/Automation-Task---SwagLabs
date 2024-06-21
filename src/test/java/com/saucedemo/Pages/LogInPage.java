@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 public class LogInPage {
 
     private WebDriver driver;
-    private final String WRONG_CREDITENTIAL_ERROR_MESSAGE = "Epic sadface: Username and password do not match any user in this service";
-    private final String EMPTY_CREDITENTIALS_ERROR_MESSAGE = "Epic sadface: Username is required";
+    private final String WRONG_CREDITENTIAL_ERROR_MESSAGE = "Epic sadface: Username and password do not match any user in this service"; //actual error message when entering wrong credentials
+    private final String EMPTY_CREDITENTIALS_ERROR_MESSAGE = "Epic sadface: Username is required"; //actual error message when leaving mail and password empty
     private final String EMPTY_PASSWORD_ERROR_MESSAGE = "Epic sadface: Password is required";
     private final String EMPTY_USERNAME_ERROR_MESSAGE = "Epic sadface: Username is required";
     public LogInPage(WebDriver driver){
