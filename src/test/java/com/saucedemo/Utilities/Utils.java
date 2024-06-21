@@ -1,11 +1,14 @@
 package com.saucedemo.Utilities;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.qameta.allure.Allure;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
 
 public class Utils {
@@ -38,7 +41,16 @@ public class Utils {
         new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(ProductionConfigUtils.getConfigValue( "WAIT_DEFAULT"))))
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
         return findWebElement(driver, locator).getText();
+    }//end getText() method
 
-    }
+    public static void takeScreenshot(File destFile, WebDriver driver){
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(file,destFile);
+            Allure.addAttachment("screenshot", new FileInputStream(destFile));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }//end takeScreenshot method
 
-}
+}//end Class Utils
